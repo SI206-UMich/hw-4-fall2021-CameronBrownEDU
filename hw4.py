@@ -134,12 +134,10 @@ class TestAllMethods(unittest.TestCase):
         self.s1 = Stall("The Grill Queen", inventory, cost = 10)
         self.s2 = Stall("Tamale Train", inventory, cost = 9)
         self.s3 = Stall("The Streatery", inventory)
-        self.c1 = Cashier("West")
-        self.c2 = Cashier("East")
         #the following codes show that the two cashiers have the same directory
-        for c in [self.c1, self.c2]:
-            for s in [self.s1,self.s2,self.s3]:
-                c.add_stall(s)
+        stall_list = [self.s1, self.s2, self.s3]
+        self.c1 = Cashier("West", stall_list)
+        self.c2 = Cashier("East", stall_list)
 
 	## Check to see whether constructors work
     def test_customer_constructor(self):
